@@ -2,30 +2,43 @@ import time
 from math import *
 
 #Função que recebe os dados da trajetoria da bola e exibe na tela
-def interceptacao_bola(t,x_bola,y_bola):
-    global x_robo, y_robo, velocidade
+def aceleracao(t,x_bola,y_bola):
+    global x_robo, y_robo, velocidade, t_desaceleracao
 
-    modulo_tangente =sqrt(((x_bola-x_robo)**2)/((y_bola-y_robo)**2))
+    if (y_bola == y_robo):
+        #Para caso o y_bola seja igual y_robo não dar erro de divisão!
+        tendencia_0 = 0.0000000000000000000000000000000000000000000000000000001
+        modulo_tangente = sqrt(((x_bola - x_robo) ** 2) / ((tendencia_0) ** 2))
+    else:
+        modulo_tangente =sqrt(((x_bola-x_robo)**2)/((y_bola-y_robo)**2))
+
     angulo = atan(modulo_tangente)
+
+
 
     velocidade_x = velocidade * sin(radians(angulo))
     velocidade_y = velocidade * cos(radians(angulo))
 
     if (x_robo < x_bola):
-        x_robo += velocidade_x
+        velocidade_x = sqrt(velocidade_x**2)
     else:
-        x_robo -= velocidade_x
+        velocidade_x = sqrt(velocidade_x**2) * (-1)
 
     if (y_robo < y_bola):
-        y_robo += velocidade_y
+        velocidade_y = sqrt(velocidade_y**2)
     else:
-        y_robo -= velocidade_y
+        velocidade_y = sqrt(velocidade_y**2) * (-1)
+
+    x_robo += velocidade_x
+    y_robo += velocidade_y
+
+    distancia = sqrt(((x_robo - x_bola) ** 2) + ((y_robo - y_bola) ** 2))
 
     #Calcula a distancia entre o robo e a bola por meio do teorema de pitagoras
     distancia = sqrt(((x_robo-x_bola)**2)+((y_robo-y_bola)**2))
     print("Tempo:",t)
-    print("posição x: %.4f " %(x_robo))
-    print("posição y: %.4f " %(y_robo))
+    print("vel x: %.4f " %(velocidade_x))
+    print("vel y: %.4f " %(velocidade_y))
 
     #Coloquei uma condição para que ao entrar no R de interceptação, o robô pare!
     #Tem esse intervalo por causa da incerteza de 0.5 - R = 10.29 +- 0.25
@@ -53,8 +66,8 @@ for i in range(len(dados)):
         matriz_traj.append(palavra)#insere os dados separados dentro da "matriz_traj"
 
 #Criei as posições iniciais do robo e a velocidade como essas só para teste
-x_robo = 0.0050
-y_robo = 0.5995
+x_robo = 0.0
+y_robo = 0.5
 velocidade = 2.8
 
 # Indice por lista : [0][0] = t/s, [0][1] = x/m, [0][2] = y/m 
