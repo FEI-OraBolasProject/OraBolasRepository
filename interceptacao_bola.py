@@ -3,7 +3,7 @@ from math import *
 
 #Função que recebe os dados da trajetoria da bola e exibe na tela
 def interceptacao_bola(t,x_bola,y_bola):
-    global x_robo, y_robo, velocidade, t_desaceleracao
+    global x_robo, y_robo, velocidade
 
     if (y_bola == y_robo):
         #Para caso o y_bola seja igual y_robo não dar erro de divisão!
@@ -14,7 +14,9 @@ def interceptacao_bola(t,x_bola,y_bola):
 
     angulo = atan(modulo_tangente)
 
-
+    #Calculo da velocidade baseado na aceleração
+    if velocidade <= 2.8:
+        velocidade = 2.8*t
 
     velocidade_x = velocidade * sin(radians(angulo))
     velocidade_y = velocidade * cos(radians(angulo))
@@ -32,18 +34,12 @@ def interceptacao_bola(t,x_bola,y_bola):
     x_robo += velocidade_x
     y_robo += velocidade_y
 
-    distancia = sqrt(((x_robo - x_bola) ** 2) + ((y_robo - y_bola) ** 2))
-
     #Calcula a distancia entre o robo e a bola por meio do teorema de pitagoras
     distancia = sqrt(((x_robo-x_bola)**2)+((y_robo-y_bola)**2))
-    print("Tempo:",t)
-    print("vel x: %.4f " %(velocidade_x))
-    print("vel y: %.4f " %(velocidade_y))
-
+    print("Distancia: ", distancia)
     #Coloquei uma condição para que ao entrar no R de interceptação, o robô pare!
     #Tem esse intervalo por causa da incerteza de 0.5 - R = 10.29 +- 0.25
-
-    if (0.1004 <= distancia <= 0.1054):
+    if (distancia <= 0.1054):
         #Se a distância estiver dentro do intervalo, o robô para e retorna "TRUE" para parar o for
         print("\nBola interceptada!")
         print("Tempo = %.2f \n" %t)
@@ -68,7 +64,7 @@ for i in range(len(dados)):
 #Criei as posições iniciais do robo e a velocidade como essas só para teste
 x_robo = 0.0
 y_robo = 0.5
-velocidade = 1
+velocidade = 0
 
 # Indice por lista : [0][0] = t/s, [0][1] = x/m, [0][2] = y/m 
 #Exibe os dados presentes na "matriz_traj" :" : 
@@ -84,6 +80,7 @@ for linha in range(len(matriz_traj)):
         break
     else:
         pass
+
     #Para testarmos é melhor tirar o tempo, depois a gente coloca!!!
     #time.sleep(0.2)# leitura dos dados a cada 2 segundos
 
