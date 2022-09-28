@@ -37,4 +37,3 @@ plt.xlabel("Coordenada X")
 plt.ylabel("Coordenada Y")
 plt.show()
 
-#for para limitar o campo com o posicionamento do robô positivo.
