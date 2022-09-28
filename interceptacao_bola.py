@@ -2,7 +2,7 @@ import time
 from math import *
 
 #Função que recebe os dados da trajetoria da bola e exibe na tela
-def aceleracao(t,x_bola,y_bola):
+def interceptacao_bola(t,x_bola,y_bola):
     global x_robo, y_robo, velocidade, t_desaceleracao
 
     if (y_bola == y_robo):
@@ -68,7 +68,7 @@ for i in range(len(dados)):
 #Criei as posições iniciais do robo e a velocidade como essas só para teste
 x_robo = 0.0
 y_robo = 0.5
-velocidade = 2.8
+velocidade = 1
 
 # Indice por lista : [0][0] = t/s, [0][1] = x/m, [0][2] = y/m 
 #Exibe os dados presentes na "matriz_traj" :" : 
