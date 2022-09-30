@@ -36,12 +36,10 @@ def interceptacao_bola(t,x_bola,y_bola):
 
     #Calculo da distancia entre o robô e a bola
     distancia = sqrt(((x_robo - x_bola) ** 2) + ((y_robo - y_bola) ** 2))
+    print("Tempo: %f , Distancia: %f " %(t, distancia))
+    print()
 
-    if velocidade >= 2.8 and distancia <= 2.8:
-        print("velocidade x: ", velocidade_x)
-        print("velocidade y: ", velocidade_y)
-        print("distancia: ", distancia)
-        print()
+    if velocidade >= 2.8 and distancia < 1:
         desacelerar = True
 
     #Coloquei uma condição para que ao entrar no R de interceptação, o robô pare!
@@ -75,7 +73,7 @@ for i in range(len(dados)):
 x_robo = 0.0
 y_robo = 0.5
 aceleracao = 2.8 #metros por segundo ao quadrado (m/s²)
-desaceleracao = 0.01 #metros por segundo ao quadrado (m/s²)
+desaceleracao = 1.4 #metros por segundo ao quadrado (m/s²)
 desacelerar = False #Variável para saber se o robô deverá começar a desacelerar (booleano)
 velocidade = 0 #Velocidade inicial do robô em metros por segundo (m/s)
 
@@ -90,9 +88,10 @@ for linha in range(len(matriz_traj)):
 
     #Calculo da velocidade do robo em funcao do tempo
     if velocidade <= 2.8 and desacelerar == False:
+        #V = v0 + a.t
         velocidade = aceleracao * tempo
     elif desacelerar == True:
-        if velocidade >= 0.10:
+        if velocidade > 0.1:
             velocidade = velocidade - desaceleracao * tempo
 
     interceptacao = interceptacao_bola(tempo,x,y)
