@@ -73,6 +73,22 @@ def interceptacao_bola(t,x_bola,y_bola):
     print("Vy: %.3f" % velocidade_y)
     print()
 
+    #Cadastro dos dados referentes as posição do robo (x_y_robo.txt)
+    cadastro_users = open("Dados_Grafico/x_y_robo.txt", "a") # Comando para abrir o arquivo "cadastro_users", aonde ficaram armazenados os cadastros de todos os clientes.
+    cadastro_users.write("%.2f\t%.2f\t%.2f\n" %(t,x_robo,y_robo))#Inserção de nome_user, cpf_user e senha_user no arquivo "cadastro_users"
+    cadastro_users.close()#Fecha e salva as informações no arquivo
+
+    #Cadastro dos dados referentes a velocidade do robo no eixo x e y (x_y_robo.txt)
+    cadastro_users = open("Dados_Grafico/vx_vy_robo.txt", "a") # Comando para abrir o arquivo "cadastro_users", aonde ficaram armazenados os cadastros de todos os clientes.
+    cadastro_users.write("%.2f\t%.2f\t%.2f\n" %(t,velocidade_x,velocidade_y))#Inserção de nome_user, cpf_user e senha_user no arquivo "cadastro_users"
+    cadastro_users.close()#Fecha e salva as informações no arquivo
+
+    #Cadastro dos dados referentes a distância entre o robo e a bola (x_y_robo.txt)
+    cadastro_users = open("Dados_Grafico/distancia_robo_bola.txt", "a") # Comando para abrir o arquivo "cadastro_users", aonde ficaram armazenados os cadastros de todos os clientes.
+    cadastro_users.write("%.2f\t%.2f\n" %(t,distancia))#Inserção de nome_user, cpf_user e senha_user no arquivo "cadastro_users"
+    cadastro_users.close()#Fecha e salva as informações no arquivo
+    
+     
     #Coloquei uma condição para que ao entrar no R de interceptação, o robô pare!
     #Tem esse intervalo por causa da incerteza de 0.5 - R = 10.29 +- 0.25 -> 0.1054 metros
     if (distancia <= 0.1054):
@@ -86,6 +102,8 @@ def interceptacao_bola(t,x_bola,y_bola):
         interceptacao = False
         return interceptacao
 
+    
+
 
 #Leitura de dados do arquivo trajetoria_bola.txt
 traj_bola = open("trajetoria_formatada.txt", "r")#
@@ -94,7 +112,7 @@ dados = traj_bola.readlines()#faz a leitura das linhas presentes no arquivo
 matriz_traj = [] #matriz_pedidos (os dados seram organizados dentro dela )
 
 y_robo = 0.5
-x_robo = 1
+x_robo = 0.2
 velocidade = 0
 aceleracao = 0.25
 vmax = 1
