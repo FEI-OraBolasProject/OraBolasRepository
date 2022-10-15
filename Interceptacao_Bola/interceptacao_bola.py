@@ -33,15 +33,21 @@ def interceptacao_bola(t,x_bola,y_bola):
     print("Dist_y: %.3f" % (y_bola - y_robo))
     print("Distancia: %.3f" % distancia)
 
-    if distancia >= 1:
+    if distancia>=2.8:
         vmax = 2.8
-        aceleracao = 1.4
-    elif 1 > distancia >= 0.5:
+        aceleracao = 2.8
+    elif 2.8 > distancia>=1.4:
+        vmax=1.4
+        aceleracao = 0.7
+    elif 1.4 > distancia >= 1:
         vmax = 1
-        aceleracao = 0.25
-    elif 0.5 > distancia >= 0.1:
+        aceleracao = 0.5
+    elif 1 > distancia >= 0.5:
         vmax = 0.5
-        aceleracao = 0.16
+        aceleracao = 0.125
+    elif 0.5 > distancia >= 0.1:
+        vmax = 0.1
+        aceleracao = 0.08
 
     if velocidade < vmax:
         velocidade = velocidade + aceleracao*0.2
@@ -80,7 +86,7 @@ def interceptacao_bola(t,x_bola,y_bola):
     print()
 
     #Função responsável por criar arquivos que contém  os dados necessários para a futura criação dos gráfico
-    gerarDados(t,x_robo,y_robo,velocidade_x,velocidade_y,distancia)
+    gerarDados(t,x_robo,y_robo,velocidade_x,velocidade_y,distancia,x_bola,y_bola)
 
     #Coloquei uma condição para que ao entrar no R de interceptação, o robô pare!
     #Tem esse intervalo por causa da incerteza de 0.5 - R = 10.29 +- 0.25 -> 0.1054 metros
