@@ -14,7 +14,7 @@ def dadosVelBola(tempoFinal):
 
         matriz_traj.append(palavra)  # insere os dados separados dentro da "matriz_traj"
 
-    velocidade_bola = open("Dados_Grafico/velocidade_bola.txt", "w")
+    velocidade_bola = open("Dados_Grafico/Gerar_Grafico/vx_vy_bola.txt", "w")
 
     for linha in range(len(matriz_traj)-1):
         tempo = float(matriz_traj[linha][0])
@@ -41,7 +41,7 @@ def dadosVelBola(tempoFinal):
 
 def dadosAcelBola(tempoFinal):
     # Leitura de dados do arquivo trajetoria_bola.txt
-    velocidade_bola = open("Dados_Grafico/velocidade_bola.txt", "r")  #
+    velocidade_bola = open("Dados_Grafico/Gerar_Grafico/vx_vy_bola.txt", "r")  #
     dados = velocidade_bola.readlines()  # faz a leitura das linhas presentes no arquivo
     velocidade_bola.close()
     matriz_vel = []  # matriz_pedidos (os dados seram organizados dentro dela )
@@ -53,7 +53,7 @@ def dadosAcelBola(tempoFinal):
 
         matriz_vel.append(palavra)  # insere os dados separados dentro da "matriz_traj"
 
-    aceleracao_bola = open("Dados_Grafico/aceleracao_bola.txt", "w")
+    aceleracao_bola = open("Dados_Grafico/Gerar_Grafico/cx_cy_bola.txt", "w")
 
     for linha in range(len(matriz_vel) - 1):
         tempo = float(matriz_vel[linha][0])
