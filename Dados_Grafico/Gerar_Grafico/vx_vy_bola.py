@@ -9,31 +9,30 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 #separar em listas as linhas do excel
-dataset = open("cx_cy_aceleracao_robo.txt", "r")
+dataset = open("vx_vy_bola.txt", "r")
 linhas = dataset.readlines()
 
 ListaLinhas = []
 tempo = []
-cx = []
-cy = []
+Robo_Vx = []
+Robo_Vy = []
 
 for i in range(1,len(linhas)):
     ListaLinhas.append(linhas[i].strip("\n").replace(",",".").split("\t"))
 
 for item in ListaLinhas:
     tempo.append(float(item[0]))
-    cx.append(float(item[1]))
-    cy.append(float(item[2]))
+    Robo_Vx.append(float(item[1]))
+    Robo_Vy.append(float(item[2]))
 
 print(tempo)
-print(cx)
-print(cy)
+print(Robo_Vx)
+print(Robo_Vy)
 
-plt.plot(tempo,cx)
-plt.plot(tempo,cy)
+plt.plot(tempo,Robo_Vx)
+plt.plot(tempo,Robo_Vy)
 
-plt.title("Aceleracao X e Y do Robo em funcao do Tempo")
-plt.xlabel("Tempo (s)")
-plt.ylabel("Aceleração (m/s²)")
-
+plt.title("Velocidade X e Y da Bola em funcao do Tempo")
+plt.xlabel("Tempo")
+plt.ylabel("Velocidade X e Y")
 plt.show()

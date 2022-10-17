@@ -32,7 +32,7 @@ print(Robo_Vy)
 plt.plot(tempo,Robo_Vx)
 plt.plot(tempo,Robo_Vy)
 
-plt.title("Velocidade X e Y em funcao do Tempo")
+plt.title("Velocidade X e Y do Robo em funcao do Tempo")
 plt.xlabel("Tempo")
 plt.ylabel("Velocidade X e Y")
 plt.show()

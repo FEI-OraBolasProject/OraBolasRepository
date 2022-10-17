@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 #separar em listas as linhas do excel
-dataset = open("cx_cy_aceleracao_robo.txt", "r")
+dataset = open("cx_cy_bola.txt", "r")
 linhas = dataset.readlines()
 
 ListaLinhas = []
@@ -32,7 +32,7 @@ print(cy)
 plt.plot(tempo,cx)
 plt.plot(tempo,cy)
 
-plt.title("Aceleracao X e Y do Robo em funcao do Tempo")
+plt.title("Aceleracao X e Y do Bola em funcao do Tempo")
 plt.xlabel("Tempo (s)")
 plt.ylabel("Aceleração (m/s²)")
 
