@@ -2,15 +2,8 @@ import time
 from Dados_Grafico.gerar_dados import gerarDados
 from math import *
 
-y_robo = 0.5
-x_robo = 0.2
-velocidade = 0
-aceleracao = 0.25
-vmax = 1
 #Função que recebe os dados da trajetoria da bola e exibe na tela
-def interceptacao_bola(t,x_bola,y_bola):
-    global x_robo, y_robo, velocidade, aceleracao, vmax
-
+def interceptacao_bola(t,x_bola,y_bola, x_robo, y_robo, velocidade, aceleracao,vmax):
     # Para caso o y_bola seja igual y_robo não dar erro de divisão!
     if (y_bola == y_robo):
         tendencia_0 = 0.0000000000000000000000000000000000000000000000000000001
@@ -44,10 +37,13 @@ def interceptacao_bola(t,x_bola,y_bola):
         aceleracao = 0.5
     elif 1 > distancia >= 0.5:
         vmax = 0.5
-        aceleracao = 0.125
-    elif 0.5 > distancia >= 0.1:
+        aceleracao = 0.25
+    elif 0.5 > distancia >= 0.25:
+        vmax = 0.25
+        aceleracao = 0.25
+    elif 0.25 > distancia >= 0.1:
         vmax = 0.1
-        aceleracao = 0.08
+        aceleracao = 0.05
 
     if velocidade < vmax:
         velocidade = velocidade + aceleracao*0.2
@@ -57,12 +53,10 @@ def interceptacao_bola(t,x_bola,y_bola):
         velocidade = velocidade
 
     #Velocidade em cada eixo com base no vetor velocidade e seu ângulo direção
-    angulo = (angulo*180)/ pi
+    angulo = (angulo*180)/pi
 
     velocidade_x = velocidade * sin(angulo)
     velocidade_y = velocidade * cos(angulo)
-
-
 
     #Analise das coordenadas dos robôs e da bola para determinar o sentido da velocidade
     if (x_robo < x_bola):
@@ -95,11 +89,11 @@ def interceptacao_bola(t,x_bola,y_bola):
         print("\nBola interceptada!")
         print("Tempo = %.2f \n" %t)
         interceptacao = True
-        return interceptacao
+        return x_robo, y_robo, velocidade, aceleracao, vmax, interceptacao
     else:
         #Se a distância não estiver dentro do intervalo, o robô continua e retorna "FALSE" para continuar o for
         interceptacao = False
-        return interceptacao
+        return x_robo, y_robo, velocidade, aceleracao, vmax, interceptacao
 
 
 
