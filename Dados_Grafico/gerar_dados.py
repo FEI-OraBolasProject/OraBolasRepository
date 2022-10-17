@@ -1,15 +1,25 @@
-def gerarDados(t,x_robo, y_robo,velocidade_x,velocidade_y,distancia,x_bola,y_bola): 
-    #Cadastro dos dados referentes as posição do robo (x_y_robo.txt)
-    cadastro_users = open("Dados_Grafico/x_y_robo_bola.txt", "a") # Comando para abrir o arquivo "cadastro_users", aonde ficaram armazenados os cadastros de todos os clientes.
-    cadastro_users.write("%.2f\t%.2f\t%.2f\t%.2f\t%.2f\n" %(t,x_robo,y_robo,x_bola,y_bola))#Inserção de nome_user, cpf_user e senha_user no arquivo "cadastro_users"
-    cadastro_users.close()#Fecha e salva as informações no arquivo
+def gerarDados(t,x_robo, y_robo,velocidade_x,velocidade_y,distancia,x_bola,y_bola,aceleracao_x, aceleracao_y): 
+    
+    #Arquivos contendo os dados referentes as posição do robo e bola(x_y_robo.txt):
+    posicao_robo_bola = open("Dados_Grafico/Gerar_Grafico/x_y_robo_bola.txt", "a") # Abre o arquivo
+    posicao_robo_bola.write("%.2f\t%.2f\t%.2f\t%.2f\t%.2f\n" %(t,x_robo,y_robo,x_bola,y_bola))#Inserção de dados no arquivo
+    posicao_robo_bola.close()#Fecha e salva as informações no arquivo
 
-    #Cadastro dos dados referentes a velocidade do robo no eixo x e y (x_y_robo.txt)
-    cadastro_users = open("Dados_Grafico/vx_vy_robo.txt", "a") # Comando para abrir o arquivo "cadastro_users", aonde ficaram armazenados os cadastros de todos os clientes.
-    cadastro_users.write("%.2f\t%.2f\t%.2f\n" %(t,velocidade_x,velocidade_y))#Inserção de nome_user, cpf_user e senha_user no arquivo "cadastro_users"
-    cadastro_users.close()#Fecha e salva as informações no arquivo
 
-    #Cadastro dos dados referentes a distância entre o robo e a bola (x_y_robo.txt)
-    cadastro_users = open("Dados_Grafico/distancia_robo_bola.txt", "a") # Comando para abrir o arquivo "cadastro_users", aonde ficaram armazenados os cadastros de todos os clientes.
-    cadastro_users.write("%.2f\t%.2f\n" %(t,distancia))#Inserção de nome_user, cpf_user e senha_user no arquivo "cadastro_users"
-    cadastro_users.close()#Fecha e salva as informações no arquivo
+    #Arquivo contendo os dados referentes a velocidade do robo no eixo x e y (vx_vy_robo.txt):
+    vx_vy_robo = open("Dados_Grafico/Gerar_Grafico/vx_vy_robo.txt", "a") #Abre o arquivo
+    vx_vy_robo.write("%.2f\t%.2f\t%.2f\n" %(t,velocidade_x,velocidade_y))#Inserção de dados no arquivo
+    vx_vy_robo.close()#Fecha e salva as informações no arquivo
+
+
+    #Arquivo contendo os dados referentes a distância entre o robo e a bola (distancia_robo_bola.txt):
+    distancia_robo_bola = open("Dados_Grafico/Gerar_Grafico/distancia_robo_bola.txt", "a") # Abre o arquivo
+    distancia_robo_bola.write("%.2f\t%.2f\n" %(t,distancia))#Inserção de dados no arquivo
+    distancia_robo_bola.close()#Fecha e salva as informações no arquivo
+
+
+    #Arquivo contendo os dados referentes a aceleração do robo no eixo x e y (cx_cy_aceleracao_robo.txt):
+    aceleracao_robo = open("Dados_Grafico/Gerar_Grafico/cx_cy_aceleracao_robo.txt", "a") # Abre o arquivo
+    aceleracao_robo.write("%.2f\t%.2f\t%.2f\n" %(t,aceleracao_x,aceleracao_y))#Inserção de dados no arquivo
+    aceleracao_robo.close()#Fecha e salva as informações no arquivo    
+
