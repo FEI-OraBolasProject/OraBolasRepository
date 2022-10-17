@@ -62,6 +62,9 @@ def interceptacao_bola(t,x_bola,y_bola):
     velocidade_x = velocidade * sin(angulo)
     velocidade_y = velocidade * cos(angulo)
 
+    #Calculo da aceleração do robo no eixo x e y (cx e cy)
+    aceleracao_x = aceleracao * sin(angulo)
+    aceleracao_y = aceleracao * cos(angulo)
 
 
     #Analise das coordenadas dos robôs e da bola para determinar o sentido da velocidade
@@ -86,7 +89,7 @@ def interceptacao_bola(t,x_bola,y_bola):
     print()
 
     #Função responsável por criar arquivos que contém  os dados necessários para a futura criação dos gráfico
-    gerarDados(t,x_robo,y_robo,velocidade_x,velocidade_y,distancia,x_bola,y_bola)
+    gerarDados(t,x_robo,y_robo,velocidade_x,velocidade_y,distancia,x_bola,y_bola, aceleracao_x, aceleracao_y)
 
     #Coloquei uma condição para que ao entrar no R de interceptação, o robô pare!
     #Tem esse intervalo por causa da incerteza de 0.5 - R = 10.29 +- 0.25 -> 0.1054 metros

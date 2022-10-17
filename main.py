@@ -5,10 +5,12 @@ from Interceptacao_Bola.interceptacao_bola import interceptacao_bola
 def main():
 
     #Apaga os arquivos preexistentes para criação dos gráficos. Evitando conflitos quando a posição do robo é sorteada novamente
-    if(os.path.isfile("Dados_Grafico/x_y_robo_bola.txt" or "Dados_Grafico/vx_vy_robo.txt" or "Dados_Grafico/distancia_robo_bola.txt")):#Verifica se existe esses arquivo na pasta "Dados_Grafico"
-        os.remove("Dados_Grafico/x_y_robo_bola.txt")#Remove o arquivo
-        os.remove("Dados_Grafico/vx_vy_robo.txt")#Remove o arquivo
-        os.remove("Dados_Grafico/distancia_robo_bola.txt")#Remove o arquivo
+    if(os.path.isfile("Dados_Grafico/Gerar_Grafico/x_y_robo_bola.txt" or "Dados_Grafico/Gerar_Grafico/vx_vy_robo.txt" or "Dados_Grafico/Gerar_Grafico/distancia_robo_bola.txt"or "Dados_Grafico/Gerar_Grafico/cx_cy_aceleracao_robo.txt")):#Verifica se existe esses arquivo na pasta "Dados_Grafico"
+        os.remove("Dados_Grafico/Gerar_Grafico/x_y_robo_bola.txt")#Remove o arquivo
+        os.remove("Dados_Grafico/Gerar_Grafico/vx_vy_robo.txt")#Remove o arquivo
+        os.remove("Dados_Grafico/Gerar_Grafico/distancia_robo_bola.txt")#Remove o arquivo
+        os.remove("Dados_Grafico/Gerar_Grafico/cx_cy_aceleracao_robo.txt")#Remove o arquivo
+        
 
     #Leitura de dados do arquivo trajetoria_bola.txt
     traj_bola = open("trajetoria_formatada.txt", "r")#
