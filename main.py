@@ -1,6 +1,7 @@
 from Interceptacao_Bola.interceptacao_bola import interceptacao_bola
 from Interceptacao_Bola.posicao_inicial_robo import gerar_posicao_inicial
 from Dados_Grafico.dadosVelBola import dadosVelBola,dadosAcelBola
+from Dados_Grafico.Gerar_Grafico.chamar_grafico import aceleracao_robo
 
 def main():
 
@@ -59,6 +60,8 @@ def main():
     print("Fim do programa")
 
     traj_bola.close()#fecha o arquivo
+
+    aceleracao_robo()
 
 if __name__ == "__main__":#Verifica de esta executando no arquivo principal
     main()

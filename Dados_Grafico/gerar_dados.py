@@ -23,3 +23,4 @@ def gerarDados(t,x_robo, y_robo,velocidade_x,velocidade_y,distancia,x_bola,y_bol
     aceleracao_robo.write("%.2f\t%.2f\t%.2f\n" %(t,aceleracao_x,aceleracao_y))#Inserção de dados no arquivo
     aceleracao_robo.close()#Fecha e salva as informações no arquivo    
 
+    
