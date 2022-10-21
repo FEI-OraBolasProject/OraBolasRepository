@@ -33,5 +33,5 @@ plt.xlabel("Tempo (s)")
 plt.ylabel("Distancia (m)")
 plt.legend(["Distancia"])
 
-plt.savefig("distancia_robo_bola.png", dpi=300, bbox_inches='tight')
+plt.savefig("img/distancia_robo_bola.png", dpi=300, bbox_inches='tight')
 plt.show()

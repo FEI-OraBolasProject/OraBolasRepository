@@ -37,5 +37,5 @@ plt.xlabel("Tempo")
 plt.ylabel("Velocidade X e Y")
 plt.legend(["Velocidade X","Velocidade Y"])
 
-plt.savefig("vx_vy_bola.png", dpi=300, bbox_inches='tight')
+plt.savefig("img/vx_vy_bola.png", dpi=300, bbox_inches='tight')
 plt.show()

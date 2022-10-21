@@ -37,5 +37,5 @@ plt.xlabel("Tempo (s)")
 plt.ylabel("Aceleração (m/s²)")
 plt.legend(["Aceleração X","Aceleração Y"])
 
-plt.savefig("cx_cy_bola.png", dpi=300, bbox_inches='tight')
+plt.savefig("img/cx_cy_bola.png", dpi=300, bbox_inches='tight')
 plt.show()

@@ -37,5 +37,5 @@ plt.xlabel("Tempo (s)")
 plt.ylabel("Coordenada X (m)")
 plt.legend(["Bola","Robo"])
 
-plt.savefig("x_t_robo_bola.png", dpi=300, bbox_inches='tight')
+plt.savefig("img/x_t_robo_bola.png", dpi=300, bbox_inches='tight')
 plt.show()
