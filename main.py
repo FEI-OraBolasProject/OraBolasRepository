@@ -27,6 +27,14 @@ def main():
     vmax = 0
     aceleracao = 0
 
+    #Raio de interceptação
+    escolha = int(input("Deseja alterar o raio de interceptação? (1-Sim/2-Não) "))
+    if escolha == 1:
+        raio_interceptacao = float(input("Digite o novo raio de interceptação: "))
+    else:
+        #Tem esse intervalo por causa da incerteza de 0.5 - R = 10.29 +- 0.25 -> 0.1054 metros
+        raio_interceptacao = 0.1054
+
     #Exibe os dados presentes na "matriz_traj" :" : 
     for linha in range(len(matriz_traj)):
         
@@ -34,7 +42,7 @@ def main():
         x_bola = float((matriz_traj[linha][1]))
         y_bola = float(matriz_traj[linha][2])
 
-        x_robo, y_robo, velocidade, aceleracao, vmax, interceptacao = interceptacao_bola(tempo,x_bola,y_bola,x_robo, y_robo, velocidade, aceleracao, vmax)
+        x_robo, y_robo, velocidade, aceleracao, vmax, interceptacao = interceptacao_bola(tempo,x_bola,y_bola,x_robo, y_robo, velocidade, aceleracao, vmax,raio_interceptacao)
 
         if (interceptacao == True):
             break

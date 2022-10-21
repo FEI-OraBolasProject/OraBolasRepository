@@ -3,14 +3,7 @@ from Dados_Grafico.gerar_dados import gerarDados
 from math import *
 
 #Função que recebe os dados da trajetoria da bola e exibe na tela
-def interceptacao_bola(t,x_bola,y_bola, x_robo, y_robo, velocidade, aceleracao,vmax):
-
-    escolha = int(input("Deseja alterar o raio de interceptação? (1-Sim/2-Não)"))
-    if escolha == 1:
-        raio_interceptacao = float(input("Digite o novo raio de interceptação: "))
-    else:
-        #Tem esse intervalo por causa da incerteza de 0.5 - R = 10.29 +- 0.25 -> 0.1054 metros
-        raio_interceptacao = 0.1054
+def interceptacao_bola(t,x_bola,y_bola, x_robo, y_robo, velocidade, aceleracao,vmax,raio_interceptacao):
 
     # Para caso o y_bola seja igual y_robo não dar erro de divisão!
     if (y_bola == y_robo):
