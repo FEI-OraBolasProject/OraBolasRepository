@@ -35,4 +35,7 @@ plt.plot(tempo,Robo_coordX)
 plt.title("Posicao X em funcao do Tempo")
 plt.xlabel("Tempo (s)")
 plt.ylabel("Coordenada X (m)")
+plt.legend(["Bola","Robo"])
+
+plt.savefig("x_t_robo_bola.png", dpi=300, bbox_inches='tight')
 plt.show()

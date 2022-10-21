@@ -35,4 +35,7 @@ plt.plot(tempo,Robo_Vy)
 plt.title("Velocidade X e Y da Bola em funcao do Tempo")
 plt.xlabel("Tempo")
 plt.ylabel("Velocidade X e Y")
+plt.legend(["Velocidade X","Velocidade Y"])
+
+plt.savefig("vx_vy_bola.png", dpi=300, bbox_inches='tight')
 plt.show()

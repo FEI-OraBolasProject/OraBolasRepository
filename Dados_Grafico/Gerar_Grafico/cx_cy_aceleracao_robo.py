@@ -35,5 +35,7 @@ plt.plot(tempo,cy)
 plt.title("Aceleracao X e Y do Robo em funcao do Tempo")
 plt.xlabel("Tempo (s)")
 plt.ylabel("Aceleração (m/s²)")
+plt.legend(["Aceleração X","Aceleração Y"])
 
+plt.savefig("cx_cy_aceleracao_robo.png", dpi=300, bbox_inches='tight')
 plt.show()

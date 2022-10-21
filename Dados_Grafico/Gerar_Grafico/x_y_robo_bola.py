@@ -43,6 +43,9 @@ plt.plot(Robo_coordX,Robo_coordY)
 plt.title("Posicao X em funcao de Y")
 plt.xlabel("Coordenada X")
 plt.ylabel("Coordenada Y")
+plt.legend(["Bola","Robo"])
+
+plt.savefig("x_y_robo_bola.png", dpi=300, bbox_inches='tight')
 plt.show()
 
 #for para limitar o campo com o posicionamento do robô positivo.
