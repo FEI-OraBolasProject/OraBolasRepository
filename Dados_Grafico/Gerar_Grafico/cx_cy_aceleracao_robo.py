@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 #separar em listas as linhas do excel
-dataset = open("cx_cy_aceleracao_robo.txt", "r")
+dataset = open("acel_robo.txt", "r")
 linhas = dataset.readlines()
 
 ListaLinhas = []
@@ -37,5 +37,5 @@ plt.xlabel("Tempo (s)")
 plt.ylabel("Aceleração (m/s²)")
 plt.legend(["Aceleração X","Aceleração Y"])
 
-plt.savefig("img/cx_cy_aceleracao_robo.png", dpi=300, bbox_inches='tight')
+plt.savefig("Graficos/acel_robo.png", dpi=300, bbox_inches='tight')
 plt.show()

@@ -1,4 +1,4 @@
-import time
+#mport time
 from Dados_Grafico.gerar_dados import gerarDados
 from math import *
 

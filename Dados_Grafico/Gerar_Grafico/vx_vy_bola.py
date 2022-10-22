@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 #separar em listas as linhas do excel
-dataset = open("vx_vy_bola.txt", "r")
+dataset = open("velocidade_bola.txt", "r")
 linhas = dataset.readlines()
 
 ListaLinhas = []

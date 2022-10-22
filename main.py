@@ -1,9 +1,26 @@
 from Interceptacao_Bola.interceptacao_bola import interceptacao_bola
 from Interceptacao_Bola.posicao_inicial_robo import gerar_posicao_inicial
 from Dados_Grafico.dadosVelBola import dadosVelBola,dadosAcelBola
-from Dados_Grafico.Gerar_Grafico.chamar_grafico import aceleracao_robo
-
+from Dados_Grafico.Gerar_Grafico.chamar_grafico import criar_graficos
+import os
 def main():
+    path = os.getcwd()
+    try:
+        #Remover os dados caso o programa já tenha sido rodado!
+        os.remove(path + '/Dados_Grafico/Gerar_Grafico/acel_robo.txt')
+        os.remove(path + '/Dados_Grafico/Gerar_Grafico/acel_bola.txt')
+        os.remove(path + '/Dados_Grafico/Gerar_Grafico/distancia_robo_bola.txt')
+        os.remove(path + '/Dados_Grafico/Gerar_Grafico/velocidade_bola.txt')
+        os.remove(path + '/Dados_Grafico/Gerar_Grafico/velocidade_robo.txt')
+        os.remove(path + '/Dados_Grafico/Gerar_Grafico/x_y_robo_bola.txt')
+        os.rmdir(path + '/Dados_Grafico/Gerar_Grafico/Graficos')
+    except:
+        pass
+
+    try:
+        os.mkdir(path + '/Dados_Grafico/Gerar_Grafico/Graficos')
+    except:
+        pass
 
     #Leitura de dados do arquivo trajetoria_bola.txt
     traj_bola = open("trajetoria_formatada.txt", "r")#
@@ -61,7 +78,6 @@ def main():
 
     traj_bola.close()#fecha o arquivo
 
-    aceleracao_robo()
-
 if __name__ == "__main__":#Verifica de esta executando no arquivo principal
     main()
+    criar_graficos()
