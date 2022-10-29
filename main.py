@@ -1,7 +1,8 @@
 from Interceptacao_Bola.interceptacao_bola import interceptacao_bola
 from Interceptacao_Bola.posicao_inicial_robo import gerar_posicao_inicial
-from Dados_Grafico.dadosVelBola import dadosVelBola,dadosAcelBola
+from Dados_Grafico.dadosMovimentacaoBola import dadosVelBola,dadosAcelBola
 from Dados_Grafico.Gerar_Grafico.chamar_grafico import criar_graficos
+from Dados_Grafico.velocidadeRelativa import pegarVelRelativa
 import os
 def main():
     path = os.getcwd()
@@ -13,6 +14,7 @@ def main():
         os.remove(path + '/Dados_Grafico/Gerar_Grafico/velocidade_bola.txt')
         os.remove(path + '/Dados_Grafico/Gerar_Grafico/velocidade_robo.txt')
         os.remove(path + '/Dados_Grafico/Gerar_Grafico/x_y_robo_bola.txt')
+        os.remove(path + '/Dados_Grafico/Gerar_Grafico/velocidade_relativa.txt')
         os.rmdir(path + '/Dados_Grafico/Gerar_Grafico/Graficos')
     except:
         pass
@@ -73,6 +75,8 @@ def main():
     #Pegar valores da velocidade e aceleracao da bola:
     dadosVelBola(tempo)
     dadosAcelBola(tempo)
+    pegarVelRelativa()
+    
 
     print("Fim do programa")
 

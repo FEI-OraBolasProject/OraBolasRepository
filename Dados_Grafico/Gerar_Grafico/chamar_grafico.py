@@ -229,6 +229,33 @@ def pos_y_robo_bola(path = os.getcwd()):
     plt.savefig(path + "/Dados_Grafico/Gerar_Grafico/Graficos/y_t_robo_bola.png", dpi=300, bbox_inches='tight')
     plt.show()
 
+def criarGraficoVelocidadeRelativa(path = os.getcwd()):
+    # separar em listas as linhas do excel
+    dataset = open(path + "/Dados_Grafico/Gerar_Grafico/velocidade_relativa.txt", "r")
+    linhas = dataset.readlines()
+
+    ListaLinhas = []
+    tempo = []
+    velocidade_relativa = []
+
+
+    for i in range(1, len(linhas)):
+        ListaLinhas.append(linhas[i].strip("\n").replace(",", ".").split("\t"))
+
+    for item in ListaLinhas:
+        tempo.append(float(item[0]))
+        velocidade_relativa.append(float(item[1]))
+
+    plt.plot(tempo, velocidade_relativa)
+ 
+
+    plt.title("Gráfico da velocidade Relativa entre o robo e a bola em funcao do Tempo")
+    plt.xlabel("Tempo (s)")
+    plt.ylabel("Velocidade Relativa (m/s)")
+
+    plt.savefig(path + "/Dados_Grafico/Gerar_Grafico/Graficos/velocidade_relativa.png", dpi=300, bbox_inches='tight')
+    plt.show()
+
 def criar_graficos():
     aceleracao_robo()
     aceleracao_bola()
@@ -238,3 +265,4 @@ def criar_graficos():
     pos_y_robo_bola()
     pos_x_robo_bola()
     pos_xy_robo_bola()
+    criarGraficoVelocidadeRelativa()
