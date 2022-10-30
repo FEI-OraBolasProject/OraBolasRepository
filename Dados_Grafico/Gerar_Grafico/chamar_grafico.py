@@ -22,13 +22,14 @@ def aceleracao_robo(path=os.getcwd()):
     plt.plot(tempo,cx)
     plt.plot(tempo,cy)
 
-    plt.title("Aceleracao X e Y do Robo em funcao do Tempo")
+    plt.title("Grafico da aceleracao X (m/s²) e Y (m/s²) do Robo em funcao do Tempo (s)")
     plt.xlabel("Tempo (s)")
     plt.ylabel("Aceleração (m/s²)")
-    plt.legend(["Aceleração X","Aceleração Y"])
+    plt.legend(["Aceleração X do robo","Aceleração Y do robo"])
 
     plt.savefig(path + "/Dados_Grafico/Gerar_Grafico/Graficos/acel_robo.png", dpi=300, bbox_inches='tight')
     plt.show()
+
 def aceleracao_bola(path=os.getcwd()):
     # separar em listas as linhas do excel
     dataset = open(path + "/Dados_Grafico/Gerar_Grafico/acel_bola.txt", "r")
@@ -50,10 +51,10 @@ def aceleracao_bola(path=os.getcwd()):
     plt.plot(tempo, cx)
     plt.plot(tempo, cy)
 
-    plt.title("Aceleracao X e Y do Bola em funcao do Tempo")
+    plt.title("Grafico de aceleracao X (m/s²) e Y (m/s²) da Bola em funcao do Tempo (s)")
     plt.xlabel("Tempo (s)")
     plt.ylabel("Aceleração (m/s²)")
-    plt.legend(["Aceleração X", "Aceleração Y"])
+    plt.legend(["Aceleração X da bola", "Aceleração Y da bola"])
 
     plt.savefig(path + "/Dados_Grafico/Gerar_Grafico/Graficos/acel_bola.png", dpi=300, bbox_inches='tight')
     plt.show()
@@ -75,7 +76,7 @@ def distancia_relativa(path=os.getcwd()):
 
     plt.plot(tempo, Distancia)
 
-    plt.title("Distancia entre Robo e Bola em funcao do Tempo")
+    plt.title("Grafico da distancia (m) entre Robo e Bola em funcao do Tempo (s)")
     plt.xlabel("Tempo (s)")
     plt.ylabel("Distancia (m)")
     plt.legend(["Distancia"])
@@ -103,10 +104,10 @@ def velocidade_bola(path = os.getcwd()):
     plt.plot(tempo, Robo_Vx)
     plt.plot(tempo, Robo_Vy)
 
-    plt.title("Velocidade X e Y da Bola em funcao do Tempo")
-    plt.xlabel("Tempo")
-    plt.ylabel("Velocidade X e Y")
-    plt.legend(["Velocidade X", "Velocidade Y"])
+    plt.title("Grafico da velocidade X (m/s) e Y (m/s) da Bola em funcao do Tempo (s)")
+    plt.xlabel("Tempo (s)")
+    plt.ylabel("Velocidade (m/s)")
+    plt.legend(["Velocidade X da bola", "Velocidade Y da bola"])
 
     plt.savefig(path + "/Dados_Grafico/Gerar_Grafico/Graficos/velocidade_bola.png", dpi=300, bbox_inches='tight')
     plt.show()
@@ -132,10 +133,10 @@ def velocidade_robo(path = os.getcwd()):
     plt.plot(tempo, Robo_Vx)
     plt.plot(tempo, Robo_Vy)
 
-    plt.title("Velocidade X e Y do Robo em funcao do Tempo")
-    plt.xlabel("Tempo")
-    plt.ylabel("Velocidade X e Y")
-    plt.legend(["Velocidade X", "Velocidade Y"])
+    plt.title("Grafico da velocidade X (m/s) e Y (m/s) do Robo em funcao do Tempo (s)")
+    plt.xlabel("Tempo (s)")
+    plt.ylabel("Velocidade (m/s)")
+    plt.legend(["Velocidade X do robo", "Velocidade Y do robo"])
 
     plt.savefig(path + "/Dados_Grafico/Gerar_Grafico/Graficos/velocidade_robo.png", dpi=300, bbox_inches='tight')
     plt.show()
@@ -160,10 +161,10 @@ def pos_x_robo_bola(path=os.getcwd()):
     plt.plot(tempo, Bola_coordX)
     plt.plot(tempo, Robo_coordX)
 
-    plt.title("Posicao X em funcao do Tempo")
+    plt.title("Grafico da posicao X (m) do robo e da bola em funcao do Tempo (s)")
     plt.xlabel("Tempo (s)")
     plt.ylabel("Coordenada X (m)")
-    plt.legend(["Bola", "Robo"])
+    plt.legend(["Posicao X da bola", "Posicao X do robo"])
 
     plt.savefig(path + "/Dados_Grafico/Gerar_Grafico/Graficos/x_t_robo_bola.png", dpi=300, bbox_inches='tight')
     plt.show()
@@ -193,10 +194,10 @@ def pos_xy_robo_bola(path=os.getcwd()):
     plt.plot(Robo_coordX, Robo_coordY)
     # plt.plot(tempo,coordX)
 
-    plt.title("Posicao do Robo e da Bola (posicao Y em funcao de X")
-    plt.xlabel("Coordenada X")
-    plt.ylabel("Coordenada Y")
-    plt.legend(["Bola", "Robo"])
+    plt.title("Grafico da posicao X (m) do Robo e da Bola em funcao da posicao Y (m)")
+    plt.xlabel("Coordenada X (m)")
+    plt.ylabel("Coordenada Y (m)")
+    plt.legend(["Posicao da Bola", "Posicao do Robo"])
 
     plt.savefig(path + "/Dados_Grafico/Gerar_Grafico/Graficos/x_y_robo_bola.png", dpi=300, bbox_inches='tight')
     plt.show()
@@ -221,10 +222,10 @@ def pos_y_robo_bola(path = os.getcwd()):
     plt.plot(tempo, Bola_coordY)
     plt.plot(tempo, Robo_coordY)
 
-    plt.title("Posicao Y em funcao do Tempo")
+    plt.title("Grafico da posicao Y (m) do robo e da bola em funcao do Tempo (s)")
     plt.xlabel("Tempo (s)")
     plt.ylabel("Coordenada Y (m)")
-    plt.legend(["Bola", "Robo"])
+    plt.legend(["Posicao Y da Bola", "Posicao Y do Robo"])
 
     plt.savefig(path + "/Dados_Grafico/Gerar_Grafico/Graficos/y_t_robo_bola.png", dpi=300, bbox_inches='tight')
     plt.show()
@@ -249,7 +250,7 @@ def criarGraficoVelocidadeRelativa(path = os.getcwd()):
     plt.plot(tempo, velocidade_relativa)
  
 
-    plt.title("Gráfico da velocidade Relativa entre o robo e a bola em funcao do Tempo")
+    plt.title("Gráfico da velocidade relativa (m/s )entre o robo e a bola em funcao do Tempo (s)")
     plt.xlabel("Tempo (s)")
     plt.ylabel("Velocidade Relativa (m/s)")
 
