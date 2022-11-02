@@ -258,12 +258,13 @@ def criarGraficoVelocidadeRelativa(path = os.getcwd()):
     plt.show()
 
 def criar_graficos():
-    aceleracao_robo()
-    aceleracao_bola()
+    pos_xy_robo_bola()
+    pos_x_robo_bola()
+    pos_y_robo_bola()
     distancia_relativa()
+    criarGraficoVelocidadeRelativa()
     velocidade_bola()
     velocidade_robo()
-    pos_y_robo_bola()
-    pos_x_robo_bola()
-    pos_xy_robo_bola()
-    criarGraficoVelocidadeRelativa()
+    aceleracao_robo()
+    aceleracao_bola()
+    
