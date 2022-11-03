@@ -1,7 +1,7 @@
 from Interceptacao_Bola.interceptacao_bola import interceptacao_bola
 from Interceptacao_Bola.posicao_inicial_robo import gerar_posicao_inicial
 from Dados_Grafico.dadosMovimentacaoBola import dadosVelBola,dadosAcelBola
-from Dados_Grafico.Gerar_Grafico.chamar_grafico import criar_graficos
+from Dados_Grafico.Gerar_Grafico.criar_graficos import criar_graficos
 from Dados_Grafico.velocidadeRelativa import pegarVelRelativa
 import os
 import time
