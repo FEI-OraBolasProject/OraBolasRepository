@@ -8,24 +8,14 @@ def interceptacao_bola(tempo,robo, bola):
     # Para caso o y_bola seja igual y_robo não dar erro de divisão!
     if (bola['y'] == robo['y']):
         tendencia_0 = 0.00000000000000001
-        modulo_tangente = sqrt(((bola['x'] - robo['x']) ** 2) / ((tendencia_0) ** 2))
+        modulo_tangente = sqrt(((bola['x'] - robo['x'])/(tendencia_0))**2)
     else:
-        modulo_tangente =sqrt(((bola['x']-robo['x'])**2)/((bola['y']-robo['y'])**2))
-
+        modulo_tangente =sqrt(((bola['x']-robo['x'])/(bola['y']-robo['y']))**2)
 
     #Pegar o angulo da tangente
     angulo = atan(modulo_tangente)
 
     bola['distancia_robo'] = sqrt(((bola['x'] - robo['x']) ** 2) + ((bola['y'] - robo['y']) ** 2))
-
-    print("\nTempo: ", tempo)
-    print("X_robo: %.3f" % robo['x'])
-    print("Y_robo: %.3f" % robo['y'])
-    print("X_BOLA: %.3f" % bola['x'])
-    print("Y_BOLA: %.3f" % bola['y'])
-    print("Dist_x: %.3f" % (bola['x'] - robo['x']))
-    print("Dist_y: %.3f" % (bola['y'] - robo['y']))
-    print("Distancia: %.3f" % bola['distancia_robo'])
 
     if bola['distancia_robo']>=2.8:
         robo['vmax'] = 2.8
@@ -41,20 +31,16 @@ def interceptacao_bola(tempo,robo, bola):
         robo['acel'] = 0.25
     elif 0.5 > bola['distancia_robo'] >= 0.25:
         robo['vmax'] = 0.25
-        robo['acel'] = 0.25
+        robo['acel'] = 0.125
     elif 0.25 > bola['distancia_robo'] >= 0.1:
         robo['vmax'] = 0.1
         robo['acel'] = 0.05
-
     if robo['vel'] < robo['vmax']:
         robo['vel'] = robo['vel'] + robo['acel']*0.2
     elif robo['vel'] > robo['vmax']:
         robo['vel'] = robo['vel'] - robo['acel']*0.2
     else:
         robo['vel'] = robo['vel']
-
-    #vel em cada eixo com base no vetor vel e seu ângulo direção
-    angulo = (angulo*180)/pi
 
     robo['vel_x'] = robo['vel'] * sin(angulo)
     robo['vel_y'] = robo['vel'] * cos(angulo)
@@ -77,21 +63,23 @@ def interceptacao_bola(tempo,robo, bola):
     #Aplicar a vel no robô
     robo['x'] += robo['vel_x']
     robo['y'] += robo['vel_y']
-
-    #Calculo da distancia entre o robô e a bola
-    print("Angulo %.3f" %angulo)
-    print("Vx: %.3f" % robo['vel_x'])
-    print("Vy: %.3f\n" % robo['vel_y'])
     
     #Função responsável por criar arquivos que contém  os dados necessários para a futura criação dos gráfico
     gerarDados(tempo,robo,bola)
 
+
     #Coloquei uma condição para que ao entrar no R de interceptação, o robô pare!
     if (bola['distancia_robo'] <= robo['raio_interceptacao']):
+        print("\n########################")
         #Se a distância estiver dentro do intervalo, o robô para e retorna "TRUE" para parar o for
-        print("\n\n\nBola interceptada!")
-        print("Tempo = %.2f \n\n\n" %tempo)
+        print("-> Bola interceptada! <-\n")
+        print("Tempo = %.2f" %tempo)
+        print("Raio de interceptação: %.2f cm" %(robo['raio_interceptacao']*100))
+        print("Distância Final entre o robo e a bola: %.2f cm" %(bola['distancia_robo']*100))
+        print("########################\n")
+
         robo['interceptou_bola'] = True
+        
         return robo
     else:
         #Se a distância não estiver dentro do intervalo, o robô continua e retorna "FALSE" para continuar o for
