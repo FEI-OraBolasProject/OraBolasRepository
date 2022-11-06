@@ -6,7 +6,7 @@ from math import sqrt,atan,pi
 
 def mostrarDadosIniciais(matriz_trajetoria,robo,bola):
 
-    print("Dados Iniciais: \n")
+    print("\nDados Iniciais:")
 
     tempo = float(matriz_trajetoria[0][0])
     bola['x'] = float((matriz_trajetoria[0][1]))
@@ -22,7 +22,7 @@ def mostrarDadosIniciais(matriz_trajetoria,robo,bola):
     angulo = atan(modulo_tangente)
 
     bola['distancia_robo'] = sqrt(((bola['x'] - robo['x']) ** 2) + ((bola['y'] - robo['y']) ** 2))
-    print("\n########################")
+    print("########################")
     print("Tempo: ", tempo)
     print("X_robo: %.3f" % robo['x'])
     print("Y_robo: %.3f" % robo['y'])
