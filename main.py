@@ -1,13 +1,13 @@
-from Interceptacao_Bola.posicao_inicial_robo import gerar_posicao_inicial
-from Interceptacao_Bola.movimentarRobo import *
-from Dados_Grafico.apagarArquivosAnteriores import *
+from Dependencias.Interceptacao_Bola.posicao_inicial_robo import gerar_posicao_inicial
+from Dependencias.Interceptacao_Bola.movimentarRobo import *
+from Dependencias.Dados_Grafico.apagarArquivosAnteriores import *
 
 def main():
 
     apagarArquivosAnteriores()
 
     #Leitura de dados do arquivo trajetoria_bola.txt
-    arquivoTrajetoriaBolaTXT = open("trajetoria_formatada.txt", "r")#
+    arquivoTrajetoriaBolaTXT = open("Dependencias/trajetoria_formatada.txt", "r")#
     listaLinhasTrajBola = arquivoTrajetoriaBolaTXT.readlines()#faz a leitura das linhas presentes no arquivo
     arquivoTrajetoriaBolaTXT.close()#fecha o arquivo
 
@@ -21,10 +21,6 @@ def main():
         matriz_trajetoria.append(dadosLinha)#insere os dados separados dentro da "matriz_traj"
 
     # Indice por lista : [0][0] = t/s, [0][1] = x/m, [0][2] = y/m
-
-
-
-
 
     #Raio de interceptação
     querAlterarRaio = int(input("Deseja alterar o raio de interceptação? Raio padrão: 10.54 cm \n(0-Não/1-Sim) "))
