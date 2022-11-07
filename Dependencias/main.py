@@ -69,4 +69,5 @@ def main():
 
 if __name__ == "__main__":#Verifica de esta executando no arquivo principal
     main()
+    input('Aperte "enter" para finalizar o programa!')
     

@@ -12,7 +12,7 @@ def apagarArquivosAnteriores(path=os.getcwd()):
         os.remove(path + '/Dependencias/Dados_Grafico/Gerar_Grafico/velocidade_robo.txt')
         os.remove(path + '/Dependencias/Dados_Grafico/Gerar_Grafico/x_y_robo_bola.txt')
         os.remove(path + '/Dependencias/Dados_Grafico/Gerar_Grafico/velocidade_relativa.txt')
-        shutil.rmtree(path + '/Dependencias/Dados_Grafico/Gerar_Grafico/Graficos_Raio_Padrao', ignore_errors=True)
+        shutil.rmtree('Graficos_Raio_Padrao', ignore_errors=True)
     except:
         pass
     
@@ -24,12 +24,12 @@ def apagarArquivosAnteriores(path=os.getcwd()):
         os.remove(path + '/Dependencias/Dados_Grafico/Gerar_Grafico/RA_velocidade_robo.txt')
         os.remove(path + '/Dependencias/Dados_Grafico/Gerar_Grafico/RA_x_y_robo_bola.txt')
         os.remove(path + '/Dependencias/Dados_Grafico/Gerar_Grafico/RA_velocidade_relativa.txt')
-        shutil.rmtree(path + '/Dependencias/Dados_Grafico/Gerar_Grafico/Graficos_Raio_Alterado', ignore_errors=True)
+        shutil.rmtree('Graficos_Raio_Alterado', ignore_errors=True)
     except:
         pass
     
     try:
-        os.mkdir(path + '/Dependencias/Dados_Grafico/Gerar_Grafico/Graficos_Raio_Padrao')
-        os.mkdir(path + '/Dependencias/Dados_Grafico/Gerar_Grafico/Graficos_Raio_Alterado')
+        os.mkdir('Graficos_Raio_Padrao')
+        os.mkdir('Graficos_Raio_Alterado')
     except:
         pass
